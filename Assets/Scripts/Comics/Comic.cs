@@ -7,12 +7,25 @@ public class Comic
     ComicBase _base;
     int level;
 
+    public int HP {get; set; }
+
+    public List<Move> Moves { get; set; }
+
     public Comic(ComicBase cBase, int cLevel)
     {
         _base = cBase;
         level = cLevel;
+        HP = _base.MaxHp;
 
-        _base.Name;
+        Move = new List<Move>();
+        foreach (var move in _base.LearnableMoves)
+        {
+            if (move.Level <= level)
+                Moves.Add(new Move(move.Base));
+
+            if (Moves.Count >= 4)
+                break;
+        }
     }
 
     public int MaxHp {

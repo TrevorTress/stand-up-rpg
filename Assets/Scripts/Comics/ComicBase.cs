@@ -17,28 +17,49 @@ public class ComicBase : ScriptableObject
     [SerializeField] int defense;
     [SerializeField] int speed;
 
+    [SerializeField] List<LearnableMove> learnableMoves;
+
     public string Name {
         get {return name;}
     }
 
     public string Description {
-        get {return descriptiod;}
+        get {return description;}
     }
 
-    public string MaxHp {
+    public int MaxHp {
         get {return maxHp;}
     }
 
-    public string Attack {
+    public int Attack {
         get {return attack;}
     }
 
-    public string Defense {
+    public int Defense {
         get {return defense;}
     }
 
-    public string Speed {
+    public int Speed {
         get {return speed;}
+    }
+}
+
+[System.Serializable]
+public class LearnableMove
+{
+    [SerializeField] MoveBase moveBase;
+    [SerializeField] int level;
+
+    public MoveBase Base {
+        get { return moveBase;}
+    }
+
+    public int Level {
+        get { return level;}
+    }
+
+    public List<LearnableMove> LearnableMoves {
+        get { return LearnableMoves; }
     }
 }
 

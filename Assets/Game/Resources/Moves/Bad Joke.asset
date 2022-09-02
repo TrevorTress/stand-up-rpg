@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a920ac0ab573cec46aed1ec20c9dd69e, type: 3}
-  m_Name: Trevor
+  m_Script: {fileID: 11500000, guid: f3d714c17d8c338418e986d6437891a4, type: 3}
+  m_Name: Bad Joke
   m_EditorClassIdentifier: 
-  name: Trevor
+  name: 
   description: 
-  sprite: {fileID: 0}
-  type: 1
-  maxHp: 1
-  attack: 1
-  defense: 1
-  speed: 1
+  type: 0
+  power: 0
+  accuracy: 0
+  pp: 0
