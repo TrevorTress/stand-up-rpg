@@ -7,7 +7,7 @@ public class Comic
     ComicBase _base;
     int level;
 
-    public int HP {get; set; }
+    public int HP { get; set; }
 
     public List<Move> Moves { get; set; }
 
@@ -17,7 +17,8 @@ public class Comic
         level = cLevel;
         HP = _base.MaxHp;
 
-        Move = new List<Move>();
+        // generate moves
+        Moves = new List<Move>();
         foreach (var move in _base.LearnableMoves)
         {
             if (move.Level <= level)
