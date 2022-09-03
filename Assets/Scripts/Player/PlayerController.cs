@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     private void CheckForBattle()
     {
         // if player is colliding with grass tile during movement
-        if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
+        if (Physics2D.OverlapCircle(transform.position, 0.1f, grassLayer) != null)
         {
             // 10% chance to initialize combat
             if (Random.Range(1, 101) <= 10)
