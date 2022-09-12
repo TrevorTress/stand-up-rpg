@@ -10,6 +10,8 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleUnit enemyUnit;
     [SerializeField] BattleHud enemyHud;
 
+    [SerializeField] BattleDialogBox dialogBox;
+
     private void Start()
     {
         SetupBattle();
@@ -22,5 +24,7 @@ public class BattleSystem : MonoBehaviour
 
         enemyUnit.Setup();
         enemyHud.SetData(enemyUnit.Comic);
+
+        StartCoroutine(dialogBox.TypeDialog($"A wild {playerUnit.Comic.Base.Name} appeared."));
     }
 }
