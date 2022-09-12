@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Trevor
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9bd8a689d9cbd4f47904a71b798750dc, type: 3}
   type: 1
   maxHp: 1
   attack: 1
