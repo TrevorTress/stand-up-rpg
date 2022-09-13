@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     // create references to different map interactions
     public float moveSpeed;
     public LayerMask solidObjectsLayer;
+    public LayerMask interactableLayer;
     public LayerMask grassLayer;
 
     // keep track of player movement and input
@@ -52,6 +53,21 @@ public class PlayerController : MonoBehaviour
 
         // tell animator character is moving
         animator.SetBool("isMoving", isMoving);
+
+        if (Input.GetKeyDown(KeyCode.Z))
+            Interact();
+    }
+
+    void Interact()
+    {
+        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        var interactPos = transform.position + facingDir;
+
+        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
+        if (collider != null)
+        {
+            collider.GetComponent<Interactable>()?.Interact();
+        }
     }
 
     // movement function that checks for grass/battle at the end
@@ -73,7 +89,7 @@ public class PlayerController : MonoBehaviour
     private bool IsWalkable(Vector3 targetPos)
     {
         // if target position collides with solidObjectsLayer
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null)
         {
             // IsWalkable() returns false
             return false;

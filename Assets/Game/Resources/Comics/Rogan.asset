@@ -20,4 +20,8 @@ MonoBehaviour:
   attack: 0
   defense: 0
   speed: 0
-  learnableMoves: []
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: ba2a376196568cb46a9050dbf1a2cc79, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: b1a113c77b2a1b74aa35f3ce53c811bb, type: 2}
+    level: 0
