@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d714c17d8c338418e986d6437891a4, type: 3}
   m_Name: Terrible Joke
   m_EditorClassIdentifier: 
-  name: 
+  name: terrible joke
   description: 
   type: 0
   power: 0
