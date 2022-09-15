@@ -36,4 +36,8 @@ public class SpriteAnimator
             timer -= frameRate;
         }
     }
+
+    public List<Sprite> Frames { 
+        get {return frames;} 
+    }
 }
