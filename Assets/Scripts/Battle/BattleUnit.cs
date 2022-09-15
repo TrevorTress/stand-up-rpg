@@ -17,5 +17,7 @@ public class BattleUnit : MonoBehaviour
         Comic = new Comic(_base, level);
         if (isPlayerUnit)
             GetComponent<Image>().sprite = Comic.Base.Sprite;
+
+        //image.color = originalColor
     }
 }

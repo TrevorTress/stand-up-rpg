@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
+    public event Action OnEncounter;
 
     // keep track of player movement and input
     private bool isMoving;
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // movement system
-    private void Update()
+    public void HandleUpdate()
     {
         // if player isnt actively moving 
         if (!isMoving)
@@ -104,9 +106,10 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.OverlapCircle(transform.position, 0.1f, grassLayer) != null)
         {
             // 10% chance to initialize combat
-            if (Random.Range(1, 101) <= 10)
+            if (UnityEngine.Random.Range(1, 101) <= 10)
             {
-                Debug.Log("Pizza Time");
+                animator.SetBool("isMoving", false);
+                OnEncounter();
             }
         }
     }
