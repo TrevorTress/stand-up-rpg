@@ -5,9 +5,12 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, Interactable
 {
     [SerializeField] Dialog dialog;
+    [SerializeField] List<Vector2> movementPattern;
+    [SerializeField] float timeBetweenPattern;
 
     NPCState state;
     float idleTimer = 0f;
+    int currentPattern = 0;
 
     Character character;
 
@@ -17,22 +20,35 @@ public class NPCController : MonoBehaviour, Interactable
     }
     public void Interact()
     {
-        //StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+        if (state == NPCState.Idle)
+            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
         //StartCoroutine(character.Move(new Vector2(2,0)));
     }
 
     private void Update()
     {
+        if (DialogManager.Instance.IsShowing) return;
         if (state == NPCState.Idle)
         {
             idleTimer += Time.deltaTime;
-            if (idleTimer > 2f)
+            if (idleTimer > timeBetweenPattern)
             {
                 idleTimer = 0f;
-                StartCoroutine(character.Move(new Vector2(1,0)));
+                if (movementPattern.Count > 0)
+                    StartCoroutine(Walk());
             }
         }
         character.HandleUpdate();
+    }
+
+    IEnumerator Walk()
+    {
+        state = NPCState.Walking;
+
+        yield return character.Move(movementPattern[currentPattern]);
+        currentPattern = (currentPattern + 1) % movementPattern.Count;
+
+        state = NPCState.Idle;
     }
 }
 
