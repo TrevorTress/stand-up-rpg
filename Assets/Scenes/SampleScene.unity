@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 96187440}
   - component: {fileID: 96187439}
   - component: {fileID: 96187441}
+  - component: {fileID: 96187442}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -265,6 +266,27 @@ MonoBehaviour:
   dialogBox: {fileID: 2040531073}
   dialogText: {fileID: 1336168934}
   lettersPerSecond: 45
+--- !u!114 &96187442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96187438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e9841a175cfe34c9da3aa38803fb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solidObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  grassLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &130098639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +1753,7 @@ GameObject:
   - component: {fileID: 1078692322}
   - component: {fileID: 1078692324}
   - component: {fileID: 1078692325}
+  - component: {fileID: 1078692326}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1816,16 +1839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b767a8d186a74a42a6f4f37f862c08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  solidObjectsLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  grassLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &1078692325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1858,6 +1871,19 @@ MonoBehaviour:
   - {fileID: -790699523677361007, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   - {fileID: 8470420716495695676, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   - {fileID: 6167071470516247665, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
+--- !u!114 &1078692326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078692321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f45a0fc23757c48850f61c9c4eb768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &1086610390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2833,8 @@ GameObject:
   - component: {fileID: 1476825284}
   - component: {fileID: 1476825283}
   - component: {fileID: 1476825285}
+  - component: {fileID: 1476825287}
+  - component: {fileID: 1476825286}
   m_Layer: 7
   m_Name: NPC
   m_TagString: Untagged
@@ -2942,6 +2970,51 @@ MonoBehaviour:
     lines:
     - Hi!
     - I'm a computer!
+--- !u!114 &1476825286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476825280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723b707f2207ce744bc1276ad978f82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkUpSprites:
+  - {fileID: 307091595780809877, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -2126968859773451732, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -5535047699543943917, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -4526993761146232485, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  walkDownSprites:
+  - {fileID: -8922328891513336043, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: 5527661196443274707, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -2495014906627460004, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: 5610367206947713552, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  walkLeftSprites:
+  - {fileID: 4614894318121576524, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: 7369579285134121275, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -1211714280344312584, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: 6842672397523141539, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  walkRightSprites:
+  - {fileID: 2230936588577103941, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -9111473675286820144, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -5627484699997550656, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+  - {fileID: -5051899674784280284, guid: 5808908a1c3074e479056ce647d88d8a, type: 3}
+--- !u!114 &1476825287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476825280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f45a0fc23757c48850f61c9c4eb768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &1514759428
 GameObject:
   m_ObjectHideFlags: 0
